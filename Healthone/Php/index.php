@@ -1,6 +1,6 @@
 <?php
 try {
-
+//inloggen
     $db = new PDO("mysql:host=localhost;dbname=healthone",
         "mark", "root");
     if (isset($_POST['inloggen'])) {
@@ -12,7 +12,7 @@ try {
         $query->bindParam("pass", $password);
         $query->execute();
         if ($query->rowCount() == 1) {
-            echo "Juiste gegevens!";
+            echo "Welkom: " . $username;
         } else {
             echo "Onjuiste gegevens, probeer het opnieuw of registreer";
         }
@@ -42,6 +42,7 @@ try {
             <a href="index.php"><img id="Home" src="Images/Logo.PNG" alt=""></a>
             <ul>
                 <li><a href="index.php">Home</a></li>
+                <li><a href="Profiel.php">Profiel</a></li>
                 <li><a href="Registreren.php">Registreren</a></li>
                 <li><a href="Contact.php">Contact</a></li>
             </ul>
