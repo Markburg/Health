@@ -1,14 +1,14 @@
 <?php
 try {
-    $db = new PDO("mysql:host=localhost;dbname=fietsenmaker",
+    $db = new PDO("mysql:host=localhost;dbname=healthone",
         "mark", "root");
-    $query = $db->prepare("SELECT * FROM fietsen2");
+    $query = $db->prepare("SELECT * FROM medicijnen");
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($result as &$data) {
     echo "<a href='Updatedetail.php?id=".$data['id']."'>";
-    echo $data["merk"] . " " . $data["type"];
+    echo $data["type"];
     echo "</a>";
     echo "<br>";
     }

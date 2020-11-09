@@ -1,19 +1,19 @@
 <?php
 try {
-    $db = new PDO("mysql:host=localhost;dbname=fietsenmaker",
+    $db = new PDO("mysql:host=localhost;dbname=healthone",
         "mark", "root");
     if (isset($_POST['verzenden'])) {
-        $merk = $_POST['merk'];
         $type = $_POST['type'];
-        $prijs = $_POST['prijs'];
+        $omschrijving = $_POST['omschrijving'];
+        $bijwerking = $_POST['bijwerking'];
 
-        $query = $db->prepare("UPDATE fietsen2 SET merk = :merk,
-        type = :type,
-        prijs = :prijs
+        $query = $db->prepare("UPDATE medicijnen SET type = :type,
+        omschrijving = :omschrijving,
+        bijwerking = :bijwerking
         WHERE id = :id");
-        $query->bindParam("merk", $merk);
         $query->bindParam("type", $type);
-        $query->bindParam("prijs", $prijs);
+        $query->bindParam("omschrijving", $omschrijving);
+        $query->bindParam("bijwerking", $bijwerking);
         $query->bindParam("id", $_GET['id']);
         if ($query->execute()) {
             echo "De nieuwe gegevens zijn toegevoegd.";
@@ -22,15 +22,15 @@ try {
         }
         echo "<br>";
     } else {
-        $query = $db->prepare("SELECT * FROM fietsen2 WHERE id = :id");
+        $query = $db->prepare("SELECT * FROM medicijnen WHERE id = :id");
         $query->bindParam("id", $_GET['id']);
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($result as &$data) {
-            $merk = $data["merk"];
             $type = $data["type"];
-            $prijs = $data["prijs"];
+            $omschrijving = $data["omschrijving"];
+            $bijwerking = $data["bijwerking"];
         }
     }
 } catch (PDOException $e) {
@@ -39,12 +39,12 @@ try {
 ?>
 
 <form method="post" action="">
-    <label>Merk</label>
-    <input type="text" name="merk" value="<?php echo $merk; ?>"><br>
     <label>Type</label>
     <input type="text" name="type" value="<?php echo $type; ?>"><br>
-    <label>Prijs</label>
-    <input type="text" name="prijs" value="<?php echo $prijs; ?>"><br>
+    <label>Omschrijving</label>
+    <input type="text" name="omschrijving" value="<?php echo $omschrijving; ?>"><br>
+    <label>Bijwerkingen</label>
+    <input type="text" name="bijwerking" value="<?php echo $bijwerking; ?>"><br>
 
     <input type="submit" name="verzenden" value="Opslaan">
 </form>

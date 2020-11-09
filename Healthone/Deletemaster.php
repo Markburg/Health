@@ -1,9 +1,9 @@
 <?php
 try {
-    $db = new PDO("mysql:host=localhost;dbname=fietsenmaker",
+    $db = new PDO("mysql:host=localhost;dbname=healthone",
         "mark", "root");
     if (isset($_GET['id'])) {
-        $query = $db->prepare("DELETE FROM fietsen2 WHERE id = :id");
+        $query = $db->prepare("DELETE FROM medicijnen WHERE id = :id");
         $query->bindParam("id", $_GET['id']);
         if ($query->execute()) {
             echo "Het item is verwijderd.";
@@ -16,12 +16,12 @@ try {
     die("Error!: " . $e->getMessage());
 }
 
-$query = $db->prepare("SELECT * FROM fietsen2");
+$query = $db->prepare("SELECT * FROM medicijnen");
 $query->execute();
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as &$data) {
     echo "<a href='Deletemaster.php?id=".$data['id']."'>";
-    echo $data["merk"] . " " . $data["type"];
+    echo $data["type"];
     echo "</a>";
     echo "<br>";
 }

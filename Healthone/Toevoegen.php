@@ -1,17 +1,17 @@
 <?php
 try {
-    $db = new PDO("mysql:host=localhost;dbname=fietsenmaker",
+    $db = new PDO("mysql:host=localhost;dbname=healthone",
         "mark", "root");
     if (isset($_POST['verzenden'])) {
-    $merk = $_POST['merk'];
-    $type = $_POST['type'];
-    $prijs = $_POST['prijs'];
-    $query = $db->prepare("INSERT INTO fietsen2(merk, type, prijs)
-    VALUES (:merk, :type, :prijs)");
+        $type = $_POST['type'];
+        $omschrijving = $_POST['omschrijving'];
+        $bijwerking = $_POST['bijwerking'];
+    $query = $db->prepare("INSERT INTO medicijnen(type, omschrijving, bijwerking)
+    VALUES (:type, :omschrijving, :bijwerking)");
 
-    $query->bindParam("merk", $merk);
     $query->bindParam("type", $type);
-    $query->bindParam("prijs", $prijs);
+    $query->bindParam("omschrijving", $omschrijving);
+    $query->bindParam("bijwerking", $bijwerking);
     if ($query->execute()) {
         echo "De nieuwe gegevens zijn toegevoegd.";
     }else {
@@ -25,12 +25,12 @@ try {
 ?>
 
 <form method="post" action="">
-    <label>Merk</label>
-    <input type="text" name="merk"> <br>
     <label>Type</label>
     <input type="text" name="type"> <br>
-    <label>Prijs</label>
-    <input type="text" name="prijs"> <br>
+    <label>Omschrijving</label>
+    <input type="text" name="omschrijving"> <br>
+    <label>Bijwerking</label>
+    <input type="text" name="bijwerking"> <br>
 
     <input type="submit" name="verzenden" value="Opslaan">
 </form>
