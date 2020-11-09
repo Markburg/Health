@@ -20,8 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e220b7d3-f9dc-4969-a5da-aafe66921c69" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Healthone/Registreren.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Healthone/Css/Main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Healthone/Php/Contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Healthone/Php/Images/Logo.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Healthone/Php/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Healthone/Deletemaster.php" beforeDir="false" afterPath="$PROJECT_DIR$/Healthone/Php/Deletemaster.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Healthone/Detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/Healthone/Php/Detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Healthone/Inloggen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Healthone/Php/Inloggen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Healthone/Master.php" beforeDir="false" afterPath="$PROJECT_DIR$/Healthone/Php/Master.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Healthone/Registreren.php" beforeDir="false" afterPath="$PROJECT_DIR$/Healthone/Php/Registreren.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Healthone/Toevoegen.php" beforeDir="false" afterPath="$PROJECT_DIR$/Healthone/Php/Toevoegen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Healthone/Updatedetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/Healthone/Php/Updatedetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Healthone/Updatemaster.php" beforeDir="false" afterPath="$PROJECT_DIR$/Healthone/Php/Updatemaster.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/6/1.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHPOpdrachten/6/1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/6/2.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHPOpdrachten/6/2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/7/1.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHPOpdrachten/7/1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/7/2.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHPOpdrachten/7/2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/7/3.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHPOpdrachten/7/3.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +47,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,8 +74,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../xampp/htdocs/Dieren" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\markv\Health\Healthone\Php" />
+      <recent name="C:\Users\markv\Health\Healthone" />
+      <recent name="C:\Users\markv\Health\Healthone\Php\Images" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -63,7 +96,7 @@
       <updated>1604331508891</updated>
       <workItem from="1604331510884" duration="123000" />
       <workItem from="1604574757270" duration="9243000" />
-      <workItem from="1604909309683" duration="10493000" />
+      <workItem from="1604909309683" duration="12939000" />
     </task>
     <servers />
   </component>
@@ -106,10 +139,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1604910560058" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1604924112910">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1604924564760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1604924112910" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604924564760" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1604926650160">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1604926650160" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1604915096437">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
