@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e220b7d3-f9dc-4969-a5da-aafe66921c69" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Healthone/Gebruikers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +62,7 @@
       <updated>1604331508891</updated>
       <workItem from="1604331510884" duration="123000" />
       <workItem from="1604574757270" duration="9243000" />
-      <workItem from="1604909309683" duration="9238000" />
+      <workItem from="1604909309683" duration="10019000" />
     </task>
     <servers />
   </component>
