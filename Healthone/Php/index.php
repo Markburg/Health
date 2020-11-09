@@ -14,7 +14,7 @@ try {
         if ($query->rowCount() == 1) {
             echo "Juiste gegevens!";
         } else {
-            echo "Onjuiste gegevens!";
+            echo "Onjuiste gegevens, probeer het opnieuw of registreer";
         }
         echo "<br>";
     }

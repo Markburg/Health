@@ -6,10 +6,12 @@ try {
     if (isset($_POST['verzenden'])) {
         $username = $_POST['username'];
         $password = sha1($_POST['password']);
-        $query = $db->prepare("INSERT INTO gebruikers(username, password)
-    VALUES (:username, :password)");
+        $role = ($_POST['rol']);
+        $query = $db->prepare("INSERT INTO gebruikers(username, password, rol)
+    VALUES (:username, :password, :rol)");
         $query->bindParam("username", $username);
         $query->bindParam("password", $password);
+        $query->bindParam("rol", $role);
         if ($query->execute()) {
             echo "De nieuwe gegevens zijn toegevoegd.";
         }else {
@@ -26,6 +28,8 @@ try {
     <input type="text" name="username"> <br>
     <label>Wachtwoord</label>
     <input type="text" name="password"> <br>
+    <label>Rol</label>
+    <input type="text" name="rol">
 
     <input type="submit" name="verzenden" value="Registreren">
 </form>
