@@ -27,5 +27,5 @@ try {
     <input type="text" name="username"><br>
     <label>Password</label>
     <input type="password" name="password"><br>
-    <input type="submit" name="inloggen" value="Inloggen">
+    <input id="Inloggen" type="submit" name="inloggen" value="Inloggen">
 </form>

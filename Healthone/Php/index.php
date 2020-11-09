@@ -1,3 +1,27 @@
+<?php
+try {
+
+    $db = new PDO("mysql:host=localhost;dbname=healthone",
+        "mark", "root");
+    if (isset($_POST['inloggen'])) {
+        $username = $_POST['username'];
+        $password = sha1($_POST['password']);
+        $query = $db->prepare("SELECT * FROM gebruikers
+                                        WHERE username = :user AND password = :pass");
+        $query->bindParam("user", $username);
+        $query->bindParam("pass", $password);
+        $query->execute();
+        if ($query->rowCount() == 1) {
+            echo "Juiste gegevens!";
+        } else {
+            echo "Onjuiste gegevens!";
+        }
+        echo "<br>";
+    }
+} catch (PDOException $e) {
+    die("Error!: " . $e->getMessage());
+}
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -21,6 +45,13 @@
                 <li><a href="Registreren.php">Registreren</a></li>
                 <li><a href="Contact.php">Contact</a></li>
             </ul>
+            <form id="Login" method="post" action="">
+                <label>Gebruikersnaam:</label>
+                <input type="text" name="username"><br>
+                <label>Wachtwoord:</label>
+                <input type="password" name="password"><br>
+                <input id="Inloggen" type="submit" name="inloggen" value="Inloggen">
+            </form>
         </nav>
     </body>
 </html>
