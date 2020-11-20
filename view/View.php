@@ -1,7 +1,8 @@
 <?php
 namespace view;
 include_once ('model/Model.php');
-include_once('model/Patient.php');
+include_once ('model/User.php');
+include_once('model/Medicijn.php');
 
 class View
 {
@@ -9,6 +10,32 @@ class View
     private $model;
     public function __construct($model){
         $this->model = $model;
+    }
+    public function showLogin()
+    {
+        echo "<!DOCTYPE html>
+                <html lang=\"nl\">
+                <head>
+                    <meta charset=\"UTF-8\">
+                    <title>Login</title>
+                </head>
+                        <body>
+                        <form method=\"post\" action=\"index.php\">
+                            <table>
+                        
+                            <tr><td>
+                                <label for='username''>gebruikersnaam</label></td><td>
+                                <input type=\"text\" name=\"username\" value='' /></td></tr>
+                            <tr><td>
+                                <label for=\"password\">wachtwoord</label></td><td>
+                                <input type=\"text\" name=\"password\"/></td></tr>
+                            <tr><td>
+                                <input type='submit' name='login' value='Inloggen'></td><td>
+                                </td></tr></table>
+                        </form>
+                        </body>
+                        </html>
+        ";
     }
     public function showMedicijnen($result = null){
         if($result == 1){
@@ -41,7 +68,12 @@ class View
                     </style>
                 </head>
                 <body>";
-                   echo "<h2>Overzicht medicijnen</h2> <form action='index.php' method='post'>
+
+                   echo "       <form action='index.php' method='post'>
+                             <input type='hidden' name='logout' value='0'>
+                             <input type='submit' value='Uitloggen'/>
+                                </form>
+                               <h2>Overzicht medicijnen</h2> <form action='index.php' method='post'>
                                <input type='hidden' name='showForm' value='0'>
                                <input type='submit' value='toevoegen'/>
                                </form></div></body></html>";
