@@ -11,6 +11,88 @@ class View
     public function __construct($model){
         $this->model = $model;
     }
+    public function homePage() {
+            echo " <!DOCTYPE html>
+    <html lang=\"nl\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
+        <meta name=\"robots\" content=\"all\"/>
+        <meta name=\"language\" content=\"Dutch\">
+        <meta name=\"Author\" content=\"Mark Van Den Burg\">
+        <meta name=\"description\" content=\"Zilveren kruis database\">
+        <meta name=\"keywords\" content=\"doktoren,apotheken,medicijnen,recepten\">
+        <title>HealthOne</title>
+        <style>
+            * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto Slab', serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: mintcream;
+        width: 100%;
+        height: 100%;
+    }
+    header {
+        background-color: #fff;
+        width: 100%;
+    }
+    nav {
+        z-index: 99;
+        width: 100%;
+        height: 50px;
+        background-color: #3f3e40;
+        font-size: 20px;
+        text-transform: uppercase;
+        position: sticky;
+        top: 0;
+        transition: top 0.3s;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    nav ul {
+        align-self: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    nav li {
+        float: left;
+        margin: 0px 35px 0px 35px;
+    }
+    nav a {
+        display: block;
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+        color: #ffc304;
+        text-decoration: none;
+    }
+</style>
+    </head>
+    <body>
+        <nav id='nav'>
+        <img src='images/Logo1.PNG'/>
+                 <ul>
+                 <li><a href=\"../index.php\"><img id='Home' src='images/Logo1.PNG' alt=''/></a></li>
+                 <li><a href=\"/index.php\">Home</a></li>
+         </ul>
+</body>
+    </html>
+            ";
+    }
     public function showLogin()
     {
         echo "<!DOCTYPE html>

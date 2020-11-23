@@ -4,6 +4,8 @@ use controller\Controller;
 include_once 'controller/Controller.php';
 $controller = new Controller();
 //alleen acties uitvoeren als er ingelogd is!!!
+$controller->Home();
+
 if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
 
     /* formulier met gegevens tonen om een rij bij te werken */
@@ -37,5 +39,3 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
     } else {
     $controller->loginAction();
 }
-
-

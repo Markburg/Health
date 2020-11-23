@@ -16,6 +16,9 @@ class Controller
         $this->model = new Model();
         $this->view = new View($this->model);
     }
+    public function Home() {
+        $this->view->homePage();
+    }
     public function loginAction(){
         if (isset($_POST['username']) && isset($_POST['password'])){
             $username = filter_input(INPUT_POST, 'username');
