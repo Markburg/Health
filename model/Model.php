@@ -12,6 +12,25 @@ class Model
     {
         $this->database = new \PDO('mysql:host=localhost;dbname=healthone', "root", "");
     }
+    //Register methode
+    public function register($username, $password, $role) {
+        $this->makeConnection();
+        if (isset($_POST['register'])) {
+            $query = $this->database->prepare("INSERT INTO users(id, username, password, role)
+                              VALUES (NULL, :username, sha1(:password), :role)");
+            $query->bindParam(":username", $username);
+            $query->bindParam(":password", $password);
+            $query->bindParam(":role", $role);
+            if ($query->execute()) {
+                echo "nieuwe gebruiker toegevoegd";
+            }
+            else {
+                echo "Error";
+            } echo "<br>";
+        }
+
+    }
+
     //Login methode
     public function login($username, $password){
         $this->makeConnection();
@@ -24,9 +43,8 @@ class Model
             $selection->setFetchMode(\PDO::FETCH_CLASS, \model\User::class);
             $user = $selection->fetch();
             if ($user) {
-                //$gehashtpassword = strtoupper(hash("sha256", $password));
+                //naar kijken met docent hoe het werkt....
                 $gehashtpassword = $password;
-                //var_dump($gehashtpassword);
                 if ($user->getPassword() == $gehashtpassword) {
                     $_SESSION['user'] = $user->getUsername();
                     $_SESSION['role'] = $user->getRole();

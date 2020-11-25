@@ -35,6 +35,26 @@ class Controller
             $this->view->showLogin();
         }
     }
+    public function registerButton(){
+        {
+            $this->view->showRegister();
+        }
+    }
+    public function registerAction()
+    {
+        if (isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['role'])) {
+            $username = filter_input(INPUT_POST, 'username');
+            $password = filter_input(INPUT_POST, 'password');
+            $role = filter_input(INPUT_POST, 'role');
+            $this->model->register($username, $password, $role);
+
+            if (isset($_SESSION[!'role']) && $_SESSION['role'] !== 'admin') {
+                $this->view->showRegister();
+            } else {
+                $this->view->showLogin();
+            }
+        }
+    }
     public function logoutAction() {
         $this->model->Logout();
         $this->view->showLogin();

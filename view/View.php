@@ -93,6 +93,36 @@ class View
     </html>
             ";
     }
+    public function showRegister() {
+        echo "<!DOCTYPE html>
+                <html lang=\"nl\">
+                <head>
+                    <meta charset=\"UTF-8\">
+                    <title>Register</title>
+                </head>
+                        <body>
+                        <h1>Registreer</h1>
+                        <form method=\"post\" action=''>
+                            <table>
+                        
+                            <tr><td>
+                                <label for='username''>gebruikersnaam</label></td><td>
+                                <input type=\"text\" name=\"username\" value='' /></td></tr>
+                            <tr><td>
+                                <label for=\"password\">wachtwoord</label></td><td>
+                                <input type=\"text\" name=\"password\"/></td></tr>
+                                <tr><td>
+                                <label for=\"role\">rol</label></td><td>
+                                <input type=\"text\" name=\"role\"/></td></tr>
+                            <tr><td>
+                                <input type='submit' name='register' value='Registreren'>
+                                </td></tr></table>
+                        </form>
+                        </body>
+                        </html>
+        ";
+
+    }
     public function showLogin()
     {
         echo "<!DOCTYPE html>
@@ -102,7 +132,8 @@ class View
                     <title>Login</title>
                 </head>
                         <body>
-                        <form method=\"post\" action=\"index.php\">
+                        <h1>Login</h1>
+                        <form method=\"post\" action=''>
                             <table>
                         
                             <tr><td>
@@ -114,6 +145,7 @@ class View
                             <tr><td>
                                 <input type='submit' name='login' value='Inloggen'></td><td>
                                 </td></tr></table>
+                                <input type='submit' name='registerbutton' value='Registreren'>
                         </form>
                         </body>
                         </html>

@@ -4,7 +4,7 @@ use controller\Controller;
 include_once 'controller/Controller.php';
 $controller = new Controller();
 //alleen acties uitvoeren als er ingelogd is!!!
-$controller->Home();
+//$controller->Home();
 
 if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
 
@@ -28,7 +28,7 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
         {
             $controller->deleteMedicijnAction($_POST['delete']);
         }
-    else if(isset($_POST['logout'])){
+    else if(isset($_POST['logout'])) {
         $controller->logoutAction();
     }
     /*READ:  overzicht alle medicijnen */
@@ -37,5 +37,11 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
         $controller->readMedicijnenAction();
     }
     } else {
-    $controller->loginAction();
+   $controller->loginAction();
+}
+if (isset($_POST['registerbutton'])) {
+    $controller->registerButton();
+    if (isset($_POST['register'])) {
+        $controller->registerAction();
+    }
 }
