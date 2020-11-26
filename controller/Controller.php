@@ -43,22 +43,23 @@ class Controller
     }
     public function registerAction()
     {
-        if (isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['role'])) {
+        if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role'])) {
             $username = filter_input(INPUT_POST, 'username');
             $password = filter_input(INPUT_POST, 'password');
             $role = filter_input(INPUT_POST, 'role');
             $registerSuccesfull = $this->model->register($username, $password, $role);
-            if($registerSuccesfull==false){
+
+            if ($registerSuccesfull === false) {
                 $message = "kies een andere gebruikersnaam";
                 $this->view->showRegister($message);
             }
-            if (isset($_SESSION[!'role']) && $_SESSION['role'] !== 'admin') {
-                    // $this->view->showRegister();
-            } else {
-                $this->view->showLogin();
+            else {
+                $message = "Succesvol geregistreerd u kunt nu inloggen";
+                $this->view->showLogin($message);
             }
         }
     }
+
     public function logoutAction() {
         $this->model->Logout();
         $this->view->showLogin();

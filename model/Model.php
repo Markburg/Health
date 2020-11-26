@@ -20,18 +20,17 @@ class Model
             $query = $this->database->prepare("INSERT INTO users(id, username, password, role)
                               VALUES (NULL, :username, sha1(:password), :role)");
             $query->bindParam(":username", $username);
-            $query->bindParam(":password", $password);
+            $query->bindParam("password", $password);
             $query->bindParam(":role", $role);
             if ($query->execute()) {
-              true;
+              return true;
             }
             else {
-                false;
+               return false;
             }
         }
 
     }
-
     //Login methode
     public function login($username, $password){
         $this->makeConnection();

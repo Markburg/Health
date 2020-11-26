@@ -124,7 +124,7 @@ class View
         ";
 
     }
-    public function showLogin()
+    public function showLogin($message=null)
     {
         echo "<!DOCTYPE html>
                 <html lang=\"nl\">
@@ -136,7 +136,7 @@ class View
                         <h1>Login</h1>
                         <form method=\"post\" action=''>
                             <table>
-                        
+                            <tr><td colspan='2'>$message</td></tr>
                             <tr><td>
                                 <label for='username''>gebruikersnaam</label></td><td>
                                 <input type=\"text\" name=\"username\" value='' /></td></tr>

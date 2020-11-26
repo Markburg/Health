@@ -61,7 +61,10 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
         $controller->readMedicijnenAction();
     }
     } else {
-   $controller->loginAction();
+    if(!isset($_POST['register'])){
+        $controller->loginAction();
+    }
+
 }
 if (isset($_POST['registerbutton']))
 {
