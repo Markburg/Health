@@ -20,6 +20,7 @@ class View
                     <link rel='stylesheet' href='css/bootstrap.min.css'>
                 </head>
                         <body>
+                        <div class='container'>
                         <h1>Registreer</h1>
                         <form method=\"post\" action=''>
                             <table>
@@ -35,8 +36,9 @@ class View
                                 <label for=\"role\">rol</label></td><td>
                                 <input type=\"text\" name=\"role\"/></td></tr>
                             <tr><td>
-                                <input type='submit' name='register' value='Registreren'>
+                                <input class='btn btn-success' type='submit' name='register' value='Registreren'>
                                 </td></tr></table>
+                                </div>
                         </form>
                         </body>
                         </html>
