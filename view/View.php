@@ -53,20 +53,22 @@ class View
                     <link rel='stylesheet' href='css/bootstrap.min.css'>
                 </head>
                         <body>
+                        <div class='container'>
                         <h1>Login</h1>
                         <form method=\"post\" action=''>
                             <table>
                             <tr><td colspan='2'>$message</td></tr>
                             <tr><td>
-                                <label for='username''>gebruikersnaam</label></td><td>
+                                <label for='username''>Gebruikersnaam</label></td><td>
                                 <input type=\"text\" name=\"username\" value='' /></td></tr>
                             <tr><td>
-                                <label for=\"password\">wachtwoord</label></td><td>
+                                <label for=\"password\">Wachtwoord</label></td><td>
                                 <input type=\"text\" name=\"password\"/></td></tr>
                             <tr><td>
-                                <input type='submit' name='login' value='Inloggen'></td><td>
+                                <input class='btn btn-primary' type='submit' name='login' value='Inloggen'></td><td>
                                 </td></tr></table>
                                 <input class='btn btn-primary' type='submit' name='registerbutton' value='Registreren'>
+                                </div>
                         </form>
                         </body>
                         </html>

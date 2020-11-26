@@ -27,11 +27,6 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
     {
         $controller->deletePatientAction($_POST['deletepatient']);
     }
-    /*READ:  overzicht alle patienten */
-    else
-    {
-        $controller->readPatientenAction();
-    }
     if(isset($_POST['showForm']))
         {
             $controller->showFormMedicijnAction( $_POST['showForm']);
@@ -53,6 +48,11 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
         }
     else if(isset($_POST['logout'])) {
         $controller->logoutAction();
+    }
+    /*READ:  overzicht alle patienten */
+    else if (isset($_SESSION['role']) )
+    {
+        $controller->readPatientenAction();
     }
     /*READ:  overzicht alle medicijnen */
     else
