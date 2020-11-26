@@ -43,8 +43,7 @@ class Model
             $selection->setFetchMode(\PDO::FETCH_CLASS, \model\User::class);
             $user = $selection->fetch();
             if ($user) {
-                //naar kijken met docent hoe het werkt....
-                $gehashtpassword = $password;
+                $gehashtpassword = sha1($password);
                 if ($user->getPassword() == $gehashtpassword) {
                     $_SESSION['user'] = $user->getUsername();
                     $_SESSION['role'] = $user->getRole();
@@ -55,6 +54,7 @@ class Model
     public function Logout(){
         session_unset();
         session_destroy();
+
     }
 
     public function insertPatient($naam,$adres,$woonplaats,$geboortedatum,$zknummer,$soortverzekering){
