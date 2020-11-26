@@ -93,7 +93,7 @@ class View
     </html>
             ";
     }
-    public function showRegister() {
+    public function showRegister($message=null) {
         echo "<!DOCTYPE html>
                 <html lang=\"nl\">
                 <head>
@@ -104,10 +104,11 @@ class View
                         <h1>Registreer</h1>
                         <form method=\"post\" action=''>
                             <table>
-                        
-                            <tr><td>
-                                <label for='username''>gebruikersnaam</label></td><td>
-                                <input type=\"text\" name=\"username\" value='' /></td></tr>
+                            <tr><td colspan='2'>$message</td></tr>
+                            <tr>
+                                <td><label for='username''>gebruikersnaam</label></td>
+                                <td><input type=\"text\" name=\"username\" value='' /></td>
+                             </tr>
                             <tr><td>
                                 <label for=\"password\">wachtwoord</label></td><td>
                                 <input type=\"text\" name=\"password\"/></td></tr>

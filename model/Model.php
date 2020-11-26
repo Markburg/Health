@@ -23,11 +23,11 @@ class Model
             $query->bindParam(":password", $password);
             $query->bindParam(":role", $role);
             if ($query->execute()) {
-                echo "nieuwe gebruiker toegevoegd";
+              true;
             }
             else {
-                echo "Error";
-            } echo "<br>";
+                false;
+            }
         }
 
     }

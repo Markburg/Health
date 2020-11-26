@@ -63,9 +63,11 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
     } else {
    $controller->loginAction();
 }
-if (isset($_POST['registerbutton'])) {
+if (isset($_POST['registerbutton']))
+{
     $controller->registerButton();
-    if (isset($_POST['register'])) {
-        $controller->registerAction();
-    }
+
+}
+if (isset($_POST['register'])) {
+    $controller->registerAction();
 }

@@ -26,6 +26,7 @@ class Controller
             $this->model->login($username, $password);
 
             if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+                $this->view->showPatienten();
                 $this->view->showMedicijnen();
             }
             else {
@@ -46,10 +47,13 @@ class Controller
             $username = filter_input(INPUT_POST, 'username');
             $password = filter_input(INPUT_POST, 'password');
             $role = filter_input(INPUT_POST, 'role');
-            $this->model->register($username, $password, $role);
-
+            $registerSuccesfull = $this->model->register($username, $password, $role);
+            if($registerSuccesfull==false){
+                $message = "kies een andere gebruikersnaam";
+                $this->view->showRegister($message);
+            }
             if (isset($_SESSION[!'role']) && $_SESSION['role'] !== 'admin') {
-                $this->view->showRegister();
+                    // $this->view->showRegister();
             } else {
                 $this->view->showLogin();
             }
