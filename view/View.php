@@ -88,48 +88,57 @@ class View
                 <head>
                     <meta charset=\"UTF-8\">
                     <title>Overzicht patienten</title>
-                    <style>
-                        #patienten{
-                            display:grid;
-                            grid-template-columns:repeat(4,1fr);                
-                            grid-column-gap:10px;
-                            grid-row-gap:10px;
-                            justify-content: center;
-                        }
-                        .patient{
-                            width:80%;
-                            background-color:#ccccff;
-                            color:darkslategray;
-                            font-size:24px;
-                            padding:10px;
-                            border-radius:10px;
-                        }
-                    </style>
+                    <link rel='stylesheet' href='css/bootstrap.min.css'>
                 </head>
                 <body>";
         echo "                    <form action='index.php' method='post'>
                              <input type='hidden' name='logout' value='0'>
                              <input type='submit' value='Uitloggen'/>
                                 </form>
+                                <div class='container-fluid'>
                                 <h2>Patienten overzicht</h2> <form action='index.php' method='post'>
                                <input type='hidden' name='showFormpatient' value='0'>
-                               <input type='submit' value='toevoegen'/>
+                               <input class='btn btn-success' type='submit' value='Toevoegen'/>
+                               </div>
                                </form></div></body></html>";
         if($patienten !== null) { echo "
                         <div id=\"patienten\">";
             foreach ($patienten as $patient) {
-                echo "<div class=\"patient\">
-                                       
-                                      $patient->naam<br />
-                                      $patient->adres<br />
-                                      $patient->woonplaats<br />
-                                      $patient->zknummer<br />
-                                      $patient->geboortedatum<br />
-                                      $patient->soortverzekering<br />
+                echo "<div class='container-fluid border border-dark'>
+                         <div class='row'>
+                                       <div class='col-sm'>
+                                       <a>Naam: </a> <br>
+                                      $patient->naam
+                                      </div>
+                                      <div class='col-sm'>
+                                      <a>adres: </a> <br>
+                                      $patient->adres
+                                      </div>
+                                      <div class='col-sm'>
+                                      <a>woonplaats: </a> <br>
+                                      $patient->woonplaats
+                                      </div>
+                                      <div class='col-sm'>
+                                      <a>zknummer: </a> <br>
+                                      $patient->zknummer
+                                      </div>
+                                      <div class='col-sm'>
+                                      <a>geboortedatum: </a> <br>
+                                      $patient->geboortedatum
+                                      </div>
+                                      <div class='col-sm'> 
+                                      <a>soortverzekering: </a> <br>
+                                      $patient->soortverzekering
+                                      </div>
+                                      <div class='col-sm'>
                                       <form action='index.php' method='post'>
-                                       <input type='hidden' name='showFormpatient' value='$patient->id'><input type='submit' value='wijzigen'/></form>
+                                       <input type='hidden' name='showFormpatient' value='$patient->id'><input class='btn btn-primary' type='submit' value='Wijzigen'/></form>
+                                        </div>
+                                        <div class='col-sm'>
                                         <form action='index.php' method='post'>
-                                       <input type='hidden' name='deletepatient' value='$patient->id'><input type='submit' value='verwijderen'/></form>
+                                       <input type='hidden' name='deletepatient' value='$patient->id'><input class='btn btn-danger' type='submit' value='Verwijderen'/></form>
+                                         </div>
+                                       </div>
                                     </div>
                                     <br>";
             }
@@ -149,6 +158,7 @@ class View
         <head>
             <meta charset=\"UTF-8\">
             <title>Beheer patientengegevens</title>
+            <link rel='stylesheet' href='css/bootstrap.min.css'>
         </head><body>
         <h2>Formulier patientgegevens</h2>";
         if(isset($patient)){
@@ -174,7 +184,7 @@ class View
                 <label for=\"soortverzekering\">soortverzekering</label></td><td>
                 <input type=\"text\" name=\"soortverzekering\" value= '".$patient->soortverzekering."'/></td></tr>
             <tr><td>
-                <input type='submit' name='updatepatient' value='opslaan'></td><td>
+                <input class='btn btn-primary' type='submit' name='updatepatient' value='opslaan'></td><td>
             </td></tr></table>
             </form>
         </body>
@@ -182,30 +192,33 @@ class View
         }
         else{
             /*de html template */
-            echo "<form method='post' action='index.php'>
-        <table>
-            <tr><td></td><td>
-                <input type=\"hidden\" name=\"id\" value=''/></td></tr>
-             <tr><td>   <label for=\"naam\">Patient naam</label></td><td>
-                <input type=\"text\" name=\"naam\" value= ''/></td></tr>
-            <tr><td>
-                <label for=\"adres\">adres</label></td><td>
-                <input type=\"text\" name=\"adres\" value = ''/></td></tr>
-            <tr><td>
-                <label for=\"woonplaats\">woonplaats</label></td><td>
-                <input type=\"text\" name=\"woonplaats\" value= ''/></td></tr>
-            <tr><td>
-                <label for=\"geboortedatum\">geboortedatum</label></td><td>
-                <input type=\"text\" name=\"geboortedatum\" value= ''/></td></tr>
-            <tr><td>
-                <label for=\"zknummer\">zknummer</label></td><td>
-                <input type=\"text\" name=\"zknummer\" value= ''/></td></tr>
-                 <tr><td>
-                <label for=\"soortverzekering\">soortverzekering</label></td><td>
-                <input type=\"text\" name=\"soortverzekering\" value= ''/></td></tr>
-            <tr><td>
-                <input type='submit' name='createpatient' value='opslaan'></td><td>
-            </td></tr></table>
+            echo "
+<form method='post' action='index.php'>
+<div class='container-fluid border border-dark'>
+                         <div class='row'>
+                                       <div class='col-sm'>
+                <input type=\"hidden\" name=\"id\" value=''/></div>
+            <div class='col-sm'><label for=\"naam\">Patient naam:</label>
+                <input type=\"text\" name=\"naam\" value= ''/></div>
+            <div class='col-sm'>
+                <label for=\"adres\">adres:</label>
+                <input type=\"text\" name=\"adres\" value = ''/></div>
+            <div class='col-sm'>
+                <label for=\"woonplaats\">woonplaats:</label>
+                <input type=\"text\" name=\"woonplaats\" value= ''/></div>
+            <div class='col-sm'>
+                <label for=\"geboortedatum\">geboortedatum:</label>
+                <input type=\"text\" name=\"geboortedatum\" value= ''/></div>
+            <div class='col-sm'>
+                <label for=\"zknummer\">zknummer:</label>
+                <input type=\"text\" name=\"zknummer\" value= ''/></div>
+            <div class='col-sm'>
+                <label for=\"soortverzekering\">soortverzekering:</label>
+                <input type=\"text\" name=\"soortverzekering\" value= ''/></div>
+           <div class='col-sm'>
+                <input class='btn btn-success' type='submit' name='createpatient' value='opslaan'></div>
+             </div>
+            </div>
             </form>
         </body>
         </html>";
@@ -223,45 +236,39 @@ class View
                 <head>
                     <meta charset=\"UTF-8\">
                     <title>Overzicht medicijnen</title>
-                    <style>
-                        #medicijnen{
-                            display:grid;
-                            grid-template-columns:repeat(4,1fr);                
-                            grid-column-gap:10px;
-                            grid-row-gap:10px;
-                            justify-content: center;
-                        }
-                        .medicijn{
-                            width:80%;
-                            background-color:#ccccff;
-                            color:darkslategray;
-                            font-size:24px;
-                            padding:10px;
-                            border-radius:10px;
-                        }
-                    </style>
+                    <link rel='stylesheet' href='css/bootstrap.min.css'>
                 </head>
                 <body>";
 
                    echo "       
                                <h2>Medicijnen overzicht</h2> <form action='index.php' method='post'>
                                <input type='hidden' name='showForm' value='0'>
-                               <input type='submit' value='toevoegen'/>
+                               <input class='btn btn-success' type='submit' value='toevoegen'/>
                                </form></div></body></html>";
                         if($medicijnen !== null) { echo "
                         <div id=\"medicijnen\">";
                             foreach ($medicijnen as $medicijn) {
-                                echo "<div class=\"medicijn\">
+                                echo "<div class=\"medicijnen\">
+                                      <div class='container-fluid border border-dark'>
+                                      <div class='row'>
+                                      <div class='col-sm'>
                                       <p>Medicijn:</p> 
-                                      $medicijn->type<br />
+                                      $medicijn->type</div>
+                                      <div class='col-sm'>
                                       <p>Omschrijving:</p>
-                                      $medicijn->omschrijving<br />
+                                      $medicijn->omschrijving</div>
+                                      <div class='col-sm'>
                                       <p>Bijwerking:</p>
-                                      $medicijn->bijwerking<br />
+                                      $medicijn->bijwerking</div>
                                       <form action='index.php' method='post'>
-                                       <input type='hidden' name='showForm' value='$medicijn->id'><input type='submit' value='wijzigen'/></form>
+                                      <div class='col-sm'>
+                                       <input type='hidden' name='showForm' value='$medicijn->id'><input class='btn btn-primary' type='submit' value='wijzigen'/></form></div>
                                         <form action='index.php' method='post'>
-                                       <input type='hidden' name='delete' value='$medicijn->id'><input type='submit' value='verwijderen'/></form>
+                                        <div class='col-sm'>
+                                       <input type='hidden' name='delete' value='$medicijn->id'><input class='btn btn-danger' type='submit' value='verwijderen'/></form>
+                                       </div>
+                                       </div>
+                                       </div>
                                     </div>";
                             }
                         }

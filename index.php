@@ -28,38 +28,34 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin"){
         $controller->deletePatientAction($_POST['deletepatient']);
     }
     if(isset($_POST['showForm']))
-        {
-            $controller->showFormMedicijnAction( $_POST['showForm']);
-        }
+    {
+        $controller->showFormMedicijnAction( $_POST['showForm']);
+    }
     /* UPDATE: formulier afhandeling om een rij bij te werken */
     else if(isset($_POST['update']))
-        {
-            $controller->updateMedicijnAction();
-        }
+    {
+        $controller->updateMedicijnAction();
+    }
     /* CREATE:  formulier afhandeling nieuwe rij */
     else if(isset($_POST['create']))
-        {
-            $controller->createMedicijnAction();
-        }
+    {
+        $controller->createMedicijnAction();
+    }
     /* DELETE:  verwijderen rijen */
     else if(isset($_POST['delete']))
-        {
-            $controller->deleteMedicijnAction($_POST['delete']);
-        }
+    {
+        $controller->deleteMedicijnAction($_POST['delete']);
+    }
     else if(isset($_POST['logout'])) {
         $controller->logoutAction();
     }
-    /*READ:  overzicht alle patienten */
-    else if (isset($_SESSION['role']) )
-    {
-        $controller->readPatientenAction();
-    }
-    /*READ:  overzicht alle medicijnen */
+    /*READ:  overzicht alle */
     else
     {
+        $controller->readPatientenAction();
         $controller->readMedicijnenAction();
     }
-    } else {
+} else {
     if(!isset($_POST['register'])){
         $controller->loginAction();
     }

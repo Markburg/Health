@@ -29,7 +29,6 @@ class Model
                return false;
             }
         }
-
     }
     //Login methode
     public function login($username, $password){
@@ -54,9 +53,7 @@ class Model
     public function Logout(){
         session_unset();
         session_destroy();
-
     }
-
     public function insertPatient($naam,$adres,$woonplaats,$geboortedatum,$zknummer,$soortverzekering){
         $this->makeConnection();
         if($naam !='')
@@ -75,12 +72,9 @@ class Model
         }
         return -1;
         // id hoeft niet te worden toegevoegd omdat de id in de databse op autoincrement staat.
-
-
     }
     public function updatePatient($id,$naam,$adres,$woonplaats,$geboortedatum,$zknummer,$soortverzekering){
         $this->makeConnection();
-
         // id moet worden toegevoegd omdat de id in de databse wordt gezocht
         $query = $this->database->prepare (
             "UPDATE `patienten` SET `naam` = :naam, `adres`=:adres, `woonplaats` = :woonplaats,
@@ -96,9 +90,7 @@ class Model
         $result = $query->execute();
         return $result;
     }
-
     public function getPatienten(){
-
         $this->makeConnection();
         $selection = $this->database->query('SELECT * FROM `patienten`');
         if($selection){
@@ -108,7 +100,6 @@ class Model
         return null;
     }
     public function selectPatient($id){
-
         $this->makeConnection();
         $selection = $this->database->prepare(
             'SELECT * FROM `patienten` 
@@ -148,18 +139,16 @@ class Model
         // id hoeft niet te worden toegevoegd omdat de id in de databse op autoincrement staat.
     }
 
-    public function updateMedicijn($id, $type, $omschrijving, $bijwerking)
-    {
+    public function updateMedicijn($id, $type, $omschrijving, $bijwerking){
         $this->makeConnection();
-
         // id moet worden toegevoegd omdat de id in de databse wordt gezocht
-        $query = $this->database->prepare(
-            "UPDATE `medicijnen` SET `type` = :type, `omschrijving`=:omschrijving, `bijwerking` = :bijwerking,
+        $query = $this->database->prepare (
+            "UPDATE `medicijnen` SET `type` = :type, `omschrijving`=:omschrijving, `bijwerking` = :bijwerking
             WHERE `medicijnen`.`id` = :id ");
         $query->bindParam(":id", $id);
         $query->bindParam(":type", $type);
         $query->bindParam(":omschrijving", $omschrijving);
-        $query->bindParam(":bijwerking", $bijwerking);
+        $query->bindParam(":bijwerking",$bijwerking);
         $result = $query->execute();
         return $result;
     }
