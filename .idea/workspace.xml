@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="70c8d489-e46f-45bc-a1f5-8c704a7ad1d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/View.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +54,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/healthtdemo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Desktop/healthtdemo" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -85,7 +84,7 @@
       <workItem from="1606380825962" duration="2189000" />
       <workItem from="1606388803585" duration="23000" />
       <workItem from="1606388879374" duration="12830000" />
-      <workItem from="1606468706430" duration="16971000" />
+      <workItem from="1606468706430" duration="18206000" />
     </task>
     <servers />
   </component>

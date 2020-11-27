@@ -163,29 +163,30 @@ class View
         <h2>Formulier patientgegevens</h2>";
         if(isset($patient)){
             echo "<form method='post' >
-        <table>
-            <tr><td></td><td>
-                <input type=\"hidden\" name=\"id\" value='$id'/></td></tr>
-             <tr><td>   <label for=\"naam\">Patient naam</label></td><td>
-                <input type=\"text\" name=\"naam\" value= '".$patient->naam."'/></td></tr>
-            <tr><td>
-                <label for=\"adres\">adres</label></td><td>
-                <input type=\"text\" name=\"adres\" value = '".$patient->adres."'/></td></tr>
-            <tr><td>
-                <label for=\"woonplaats\">woonplaats</label></td><td>
-                <input type=\"text\" name=\"woonplaats\" value= '".$patient->woonplaats."'/></td></tr>
-            <tr><td>
-                <label for=\"geboortedatum\">geboortedatum</label></td><td>
-                <input type=\"text\" name=\"geboortedatum\" value= '".$patient->geboortedatum."'/></td></tr>
-            <tr><td>
-                <label for=\"zknummer\">zknummer</label></td><td>
-                <input type=\"text\" name=\"zknummer\" value= '".$patient->zknummer."'/></td></tr>
-                 <tr><td>
-                <label for=\"soortverzekering\">soortverzekering</label></td><td>
-                <input type=\"text\" name=\"soortverzekering\" value= '".$patient->soortverzekering."'/></td></tr>
-            <tr><td>
-                <input class='btn btn-primary' type='submit' name='updatepatient' value='opslaan'></td><td>
-            </td></tr></table>
+        <div class='container-fluid border border-dark'>
+             <div class='row'>
+                <input type=\"hidden\" name=\"id\" value='$id'/>
+                <div class='col-sm'><label for=\"naam\">Patient naam</label>
+                <input type=\"text\" name=\"naam\" value= '".$patient->naam."'/></div>
+            <div class='col-sm'>
+                <label for=\"adres\">adres</label>
+                <input type=\"text\" name=\"adres\" value = '".$patient->adres."'/></div>
+            <div class='col-sm'>
+                <label for=\"woonplaats\">woonplaats</label>
+                <input type=\"text\" name=\"woonplaats\" value= '".$patient->woonplaats."'/></div>
+            <div class='col-sm'>
+                <label for=\"geboortedatum\">geboortedatum</label>
+                <input type=\"text\" name=\"geboortedatum\" value= '".$patient->geboortedatum."'/></div>
+            <div class='col-sm'>
+                <label for=\"zknummer\">zknummer</label>
+                <input type=\"text\" name=\"zknummer\" value= '".$patient->zknummer."'/></div>
+            <div class='col-sm'>
+                <label for=\"soortverzekering\">soortverzekering</label>
+                <input type=\"text\" name=\"soortverzekering\" value= '".$patient->soortverzekering."'/></div>
+            <div class='col-sm'>
+                <input class='btn btn-primary' type='submit' name='updatepatient' value='opslaan'></div>
+            </div>
+            </div>
             </form>
         </body>
         </html>";
@@ -285,25 +286,27 @@ class View
         <head>
             <meta charset=\"UTF-8\">
             <title>Beheer Medicijnengegevens</title>
+            <link rel='stylesheet' href='css/bootstrap.min.css'>
         </head><body>
         <h2>Formulier Medicijngegevens</h2>";
     if(isset($medicijn)){
         echo "<form method='post' >
-        <table>
-            <tr><td></td><td>
-                <input type=\"hidden\" name=\"id\" value='$id'/></td></tr>
-             <tr><td>   <label for=\"type\">Medicijn naam</label></td><td>
-                <input type=\"text\" name=\"type\" value= '".$medicijn->type."'/></td></tr>
-            <tr><td>
-                <label for=\"adres\">omschrijving</label></td><td>
-                <input type=\"text\" name=\"omschrijving\" value = '".$medicijn->omschrijving."'/></td></tr>
-            <tr><td>
-                <label for=\"woonplaats\">Bijwerking(en)</label></td><td>
-                <input type=\"text\" name=\"bijwerking\" value= '".$medicijn->bijwerking."'/></td></tr>
-            <tr><td>
-            <tr><td>
-                <input type='submit' name='update' value='opslaan'></td><td>
-            </td></tr></table>
+            <div class='container-fluid border border-dark'>
+                  <div class='row'>
+                <input type=\"hidden\" name=\"id\" value='$id'/>
+                <div class='col-sm'>
+                <label for=\"type\">Medicijn naam</label>
+                <input type=\"text\" name=\"type\" value= '".$medicijn->type."'/></div>
+            <div class='col-sm'>
+                <label for=\"adres\">omschrijving</label>
+                <input type=\"text\" name=\"omschrijving\" value = '".$medicijn->omschrijving."'/></div>
+            <div class='col-sm'>
+                <label for=\"woonplaats\">Bijwerking(en)</label>
+                <input type=\"text\" name=\"bijwerking\" value= '".$medicijn->bijwerking."'/></div>
+            <div class='col-sm'>
+                <input class='btn btn-primary' type='submit' name='update' value='opslaan'></div>
+                </div>
+            </div>
             </form>
         </body>
         </html>";
@@ -311,21 +314,22 @@ class View
     else{
         /*de html template */
         echo "<form method='post' action='index.php'>
-        <table>
-            <tr><td></td><td>
-                <input type=\"hidden\" name=\"id\" value=''/></td></tr>
-             <tr><td>   <label for=\"type\">Medicijn naam</label></td><td>
-                <input type=\"text\" name=\"type\" value= ''/></td></tr>
-            <tr><td>
-                <label for=\"omschrijving\">Omschrijving</label></td><td>
-                <input type=\"text\" name=\"omschrijving\" value = ''/></td></tr>
-            <tr><td>
-                <label for=\"bijwerking\">Bijwerking(en)</label></td><td>
-                <input type=\"text\" name=\"bijwerking\" value= ''/></td></tr>
-            <tr><td>
-            <tr><td>
-                <input type='submit' name='create' value='opslaan'></td><td>
-            </td></tr></table>
+        <div class='container-fluid border border-dark'>
+                  <div class='row'>
+                <input type=\"hidden\" name=\"id\" value=''/>
+             <div class='col-sm'>
+             <label for=\"type\">Medicijn naam</label>
+                <input type=\"text\" name=\"type\" value= ''/></div>
+            <div class='col-sm'>
+                <label for=\"omschrijving\">Omschrijving</label>
+                <input type=\"text\" name=\"omschrijving\" value = ''/></div>
+            <div class='col-sm'>
+                <label for=\"bijwerking\">Bijwerking(en)</label>
+                <input type=\"text\" name=\"bijwerking\" value= ''/></div>
+            <div class='col-sm'>
+                <input class='btn btn-primary' type='submit' name='create' value='opslaan'></div>
+            </div>
+            </div>
             </form>
         </body>
         </html>";
