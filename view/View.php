@@ -240,16 +240,14 @@ class View
                 </head>
                 <body>";
 
-                   echo "       
-                               <h2>Medicijnen overzicht</h2> <form action='index.php' method='post'>
+                   echo "    <h2>Medicijnen overzicht</h2> <form action='index.php' method='post'>
                                <input type='hidden' name='showForm' value='0'>
                                <input class='btn btn-success' type='submit' value='toevoegen'/>
                                </form></div></body></html>";
                         if($medicijnen !== null) { echo "
                         <div id=\"medicijnen\">";
                             foreach ($medicijnen as $medicijn) {
-                                echo "<div class=\"medicijnen\">
-                                      <div class='container-fluid border border-dark'>
+                                echo "<div class='container-fluid border border-dark'>
                                       <div class='row'>
                                       <div class='col-sm'>
                                       <p>Medicijn:</p> 
@@ -273,7 +271,7 @@ class View
                             }
                         }
                     else{
-                        echo "Geen patienten gevonden";
+                        echo "Geen medicijnen gevonden";
                     }
 
     }

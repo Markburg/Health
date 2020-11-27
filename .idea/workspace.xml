@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="70c8d489-e46f-45bc-a1f5-8c704a7ad1d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/View.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +85,7 @@
       <workItem from="1606380825962" duration="2189000" />
       <workItem from="1606388803585" duration="23000" />
       <workItem from="1606388879374" duration="12830000" />
-      <workItem from="1606468706430" duration="14249000" />
+      <workItem from="1606468706430" duration="16971000" />
     </task>
     <servers />
   </component>
@@ -141,9 +140,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1606471867438" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1606307433028">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1606488672226">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606307433028" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1606488672226" />
   </component>
 </project>

@@ -56,7 +56,6 @@ class Controller
             }
         }
     }
-
     public function logoutAction() {
         $this->model->Logout();
         $this->view->showLogin();
@@ -86,7 +85,7 @@ class Controller
         $geboortedatum = filter_input(INPUT_POST,'geboortedatum');
         $zknummer = filter_input(INPUT_POST,'zknummer');
         $soortverzekering = filter_input(INPUT_POST,'soortverzekering');
-        $result=$this->model->updatePatient($id,$naam,$adres,$woonplaats,$geboortedatum,$zknummer,$soortverzekering);
+        $result = $this->model->updatePatient($id,$naam,$adres,$woonplaats,$geboortedatum,$zknummer,$soortverzekering);
         $this->view->showPatienten($result);
     }
     public function deletePatientAction($id){
@@ -104,12 +103,11 @@ class Controller
         $this->view->showFormMedicijnen($id);
     }
 
-    public function createMedicijnAction()
-    {
-        $type = filter_input(INPUT_POST, 'type');
-        $omschrijving = filter_input(INPUT_POST, 'omschrijving');
-        $bijwerking = filter_input(INPUT_POST, 'bijwerking');
-        $result = $this->model->insertMedicijn($type, $omschrijving, $bijwerking);
+    public function createMedicijnaction(){
+        $type = filter_input(INPUT_POST,'type');
+        $omschrijving = filter_input(INPUT_POST,'omschrijving');
+        $bijwerking = filter_input(INPUT_POST,'bijwerking');
+        $result = $this->model->insertMedicijn($type,$omschrijving,$bijwerking);
         $this->view->showMedicijnen($result);
     }
 
