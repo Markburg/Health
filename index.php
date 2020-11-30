@@ -21,7 +21,7 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin") {
     }
     //Patienten
     /* formulier met gegevens tonen om een rij bij te werken */
-    if (isset($_POST['showFormpatient'])) {
+    else if (isset($_POST['showFormpatient'])) {
         $controller->showFormPatientAction($_POST['showFormpatient']);
     } /* UPDATE: formulier afhandeling om een rij bij te werken */
     else if (isset($_POST['updatepatient'])) {
@@ -34,7 +34,7 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin") {
         $controller->deletePatientAction($_POST['deletepatient']);
     }
     //Medicijnen
-    if (isset($_POST['showForm'])) {
+    else if (isset($_POST['showForm'])) {
         $controller->showFormMedicijnAction($_POST['showForm']);
     } /* UPDATE: formulier afhandeling om een rij bij te werken */
     else if (isset($_POST['update'])) {
@@ -70,7 +70,7 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin") {
         $controller->deletePatientAction($_POST['deletepatient']);
     }
     //Medicijnen
-    if (isset($_POST['showForm'])) {
+    else if (isset($_POST['showForm'])) {
         $controller->showFormMedicijnAction($_POST['showForm']);
     } /* UPDATE: formulier afhandeling om een rij bij te werken */
     else if (isset($_POST['update'])) {
@@ -87,6 +87,7 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin") {
     else {
         $controller->readPatientenAction();
         $controller->readMedicijnenAction();
+        $controller->readApothekersaction();
     }
 } else if (isset($_SESSION['role']) && $_SESSION['role'] == "patiënt") {
      if (isset($_POST['logout'])) {
@@ -96,6 +97,31 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin") {
          $controller->readDoktersaction();
          $controller->readApothekersaction();
      }
+} else if (isset($_SESSION['role']) && $_SESSION['role'] == "apotheker") {
+    //Medicijnen
+    if (isset($_POST['showForm'])) {
+        $controller->showFormMedicijnAction($_POST['showForm']);
+    } /* UPDATE: formulier afhandeling om een rij bij te werken */
+    else if (isset($_POST['update'])) {
+        $controller->updateMedicijnAction();
+    } /* CREATE:  formulier afhandeling nieuwe rij */
+    else if (isset($_POST['create'])) {
+        $controller->createMedicijnAction();
+    } /* DELETE:  verwijderen rijen */
+    else if (isset($_POST['delete'])) {
+        $controller->deleteMedicijnAction($_POST['delete']);
+    }
+    else if (isset($_POST['logout'])) {
+        $controller->logoutAction();
+    }
+    else if (isset($_POST['logout'])) {
+        $controller->logoutAction();
+    }
+    else {
+        $controller->readDoktersaction();
+        $controller->readMedicijnenAction();
+        $controller->readApothekersaction();
+    }
 }
 else {
     if(!isset($_POST['register'])){

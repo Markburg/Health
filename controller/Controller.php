@@ -29,8 +29,13 @@ class Controller
             }else if (isset($_SESSION['role']) && $_SESSION['role'] === 'dokter') {
                 $this->view->showPatienten();
                 $this->view->showMedicijnen();
+                $this->view->showApothekers();
             } else if (isset($_SESSION['role']) && $_SESSION['role'] === 'patiënt'){
                 $this->view->showDokters();
+                $this->view->showApothekers();
+            }  else if (isset($_SESSION['role']) && $_SESSION['role'] === 'apotheker'){
+                $this->view->showDokters();
+                $this->view->showMedicijnen();
                 $this->view->showApothekers();
             }
             else {
@@ -171,6 +176,6 @@ class Controller
         $this->view->showDokters();
     }
     public function readApothekersaction() {
-        $this->view->showDokters();
+        $this->view->showApothekers();
     }
 }

@@ -257,7 +257,11 @@ class View
                 </head>
                 <body>";
 
-        echo "    <h2>Medicijnen overzicht</h2> <form action='index.php' method='post'>
+        echo "    <form action='index.php' method='post'>
+                             <input type='hidden' name='logout' value='0'>
+                             <input class='btn btn-danger' type='submit' value='Uitloggen'/>
+                                </form>
+                <h2>Medicijnen overzicht</h2> <form action='index.php' method='post'>
                                <input type='hidden' name='showForm' value='0'>
                                <input class='btn btn-success' type='submit' value='toevoegen'/>
                                </form></div></body></html>";
@@ -370,7 +374,11 @@ class View
                 </head>
                 <body>";
 
-        echo "    <h2>Gebruikers overzicht</h2> <form action='index.php' method='post'>
+        echo "    <form action='index.php' method='post'>
+                             <input type='hidden' name='logout' value='0'>
+                             <input class='btn btn-danger' type='submit' value='Uitloggen'/>
+                                </form>
+                    <h2>Gebruikers overzicht</h2> <form action='index.php' method='post'>
                                <input type='hidden' name='showFormusers' value='0'>
                                <input class='btn btn-success' type='submit' value='Toevoegen'/>
                                </form></div></body></html>";
@@ -514,7 +522,11 @@ class View
                 </head>
                 <body>";
 
-        echo "    <h2>Apothekers overzicht</h2> <form action='index.php' method='post'>
+        echo "  <form action='index.php' method='post'>
+                             <input type='hidden' name='logout' value='0'>
+                             <input class='btn btn-danger' type='submit' value='Uitloggen'/>
+                                </form>  
+                <h2>Apothekers overzicht</h2> <form action='index.php' method='post'>
                                <input type='hidden' name='showFormapothekers' value='0'>
                                </form></div></body></html>";
         foreach ($apothekers as $apotheker) {
