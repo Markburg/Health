@@ -31,6 +31,7 @@ class Controller
                 $this->view->showMedicijnen();
             } else if (isset($_SESSION['role']) && $_SESSION['role'] === 'patiënt'){
                 $this->view->showDokters();
+                $this->view->showApothekers();
             }
             else {
                 $this->view->showLogin();
@@ -167,6 +168,9 @@ class Controller
         $this->view->showUsers($result);
     }
     public function readDoktersaction() {
+        $this->view->showDokters();
+    }
+    public function readApothekersaction() {
         $this->view->showDokters();
     }
 }

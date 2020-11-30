@@ -476,7 +476,7 @@ class View
                 <html lang=\"nl\">
                 <head>
                     <meta charset=\"UTF-8\">
-                    <title>Overzicht dokters</title>
+                    <title>Overzicht dokters en apothekers</title>
                     <link rel='stylesheet' href='css/bootstrap.min.css'>
                 </head>
                 <body>";
@@ -495,6 +495,37 @@ class View
                                       <div class='col-sm'>
                                       <p>Rol:</p>
                                       $dokter->role</div>                                     
+                                       </div>
+                                       </div>
+                                    </div>";
+        }
+    }
+    public function showApothekers()
+    {
+
+        $apothekers = $this->model->getApothekers();
+
+        /*de html template */
+        echo "<!DOCTYPE html>
+                <html lang=\"nl\">
+                <head>
+                    <meta charset=\"UTF-8\">
+                    <link rel='stylesheet' href='css/bootstrap.min.css'>
+                </head>
+                <body>";
+
+        echo "    <h2>Apothekers overzicht</h2> <form action='index.php' method='post'>
+                               <input type='hidden' name='showFormapothekers' value='0'>
+                               </form></div></body></html>";
+        foreach ($apothekers as $apotheker) {
+            echo "<div class='container-fluid border border-dark'>
+                                      <div class='row'>
+                                      <div class='col-sm'>
+                                      <p>naam:</p> 
+                                      $apotheker->username</div>                                     
+                                      <div class='col-sm'>
+                                      <p>Rol:</p>
+                                      $apotheker->role</div>                                     
                                        </div>
                                        </div>
                                     </div>";

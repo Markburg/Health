@@ -273,4 +273,15 @@ class Model
         }
         return null;
     }
+    public function getApothekers()
+    {
+
+        $this->makeConnection();
+        $selection = $this->database->query('SELECT * FROM `users` WHERE role ="apotheker"');
+        if ($selection) {
+            $result = $selection->fetchAll(\PDO::FETCH_CLASS, \model\User::class);
+            return $result;
+        }
+        return null;
+    }
 }
