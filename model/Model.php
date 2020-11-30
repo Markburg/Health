@@ -192,4 +192,74 @@ class Model
         $result = $selection->execute();
         return $result;
     }
+    public function insertGebruiker($username, $password, $role)
+    {
+        $this->makeConnection();
+        if ($username != '') {
+            $query = $this->database->prepare(
+                "INSERT INTO `users` (`id`, `username`, `password`, `role`) 
+                VALUES (NULL, :username, :password, :role)");
+            $query->bindParam(":username", $username);
+            $query->bindParam(":password", $password);
+            $query->bindParam(":role", $role);
+            $result = $query->execute();
+            return $result;
+        }
+        return -1;
+        // id hoeft niet te worden toegevoegd omdat de id in de databse op autoincrement staat.
+    }
+
+    public function updateGebruiker($id, $username, $password, $role){
+        $this->makeConnection();
+        // id moet worden toegevoegd omdat de id in de databse wordt gezocht
+        $query = $this->database->prepare (
+            "UPDATE `users` SET `username` = :username, `password`=:password, `role` = :role
+            WHERE `users`.`id` = :id ");
+        $query->bindParam(":id", $id);
+        $query->bindParam(":username", $username);
+        $query->bindParam(":password", $password);
+        $query->bindParam(":role",$role);
+        $result = $query->execute();
+        return $result;
+    }
+
+    public function getGebruiker()
+    {
+
+        $this->makeConnection();
+        $selection = $this->database->query('SELECT * FROM `users`');
+        if ($selection) {
+            $result = $selection->fetchAll(\PDO::FETCH_CLASS, \model\User::class);
+            return $result;
+        }
+        return null;
+    }
+
+    public function selectGebruiker($id)
+    {
+
+        $this->makeConnection();
+        $selection = $this->database->prepare(
+            'SELECT * FROM `users` 
+            WHERE `users`.`id` =:id');
+        $selection->bindParam(":id", $id);
+        $result = $selection->execute();
+        if ($result) {
+            $selection->setFetchMode(\PDO::FETCH_CLASS, \model\User::class);
+            $user = $selection->fetch();
+            return $user;
+        }
+        return null;
+    }
+
+    public function deleteGebruiker($id)
+    {
+        $this->makeConnection();
+        $selection = $this->database->prepare(
+            'DELETE FROM `users` 
+            WHERE `users`.`id` =:id');
+        $selection->bindParam(":id", $id);
+        $result = $selection->execute();
+        return $result;
+    }
 }

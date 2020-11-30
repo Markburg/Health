@@ -8,10 +8,14 @@ class View
 {
 
     private $model;
-    public function __construct($model){
+
+    public function __construct($model)
+    {
         $this->model = $model;
     }
-    public function showRegister($message=null) {
+
+    public function showRegister($message = null)
+    {
         echo "<!DOCTYPE html>
                 <html lang=\"nl\">
                 <head>
@@ -45,7 +49,8 @@ class View
         ";
 
     }
-    public function showLogin($message=null)
+
+    public function showLogin($message = null)
     {
         echo "<!DOCTYPE html>
                 <html lang=\"nl\">
@@ -76,8 +81,10 @@ class View
                         </html>
         ";
     }
-    public function showPatienten($result = null){
-        if($result == 1){
+
+    public function showPatienten($result = null)
+    {
+        if ($result == 1) {
             echo "<h4>Actie geslaagd</h4>";
         }
         $patienten = $this->model->getPatienten();
@@ -101,7 +108,8 @@ class View
                                <input class='btn btn-success' type='submit' value='Toevoegen'/>
                                </div>
                                </form></div></body></html>";
-        if($patienten !== null) { echo "
+        if ($patienten !== null) {
+            echo "
                         <div id=\"patienten\">";
             foreach ($patienten as $patient) {
                 echo "<div class='container-fluid border border-dark'>
@@ -142,14 +150,15 @@ class View
                                     </div>
                                     <br>";
             }
-        }
-        else{
+        } else {
             echo "Geen patienten gevonden";
         }
 
     }
-    public function showFormPatienten($id=null){
-        if($id !=null && $id !=0){
+
+    public function showFormPatienten($id = null)
+    {
+        if ($id != null && $id != 0) {
             $patient = $this->model->selectPatient($id);
         }
         /*de html template */
@@ -161,28 +170,28 @@ class View
             <link rel='stylesheet' href='css/bootstrap.min.css'>
         </head><body>
         <h2>Formulier patientgegevens</h2>";
-        if(isset($patient)){
+        if (isset($patient)) {
             echo "<form method='post' >
         <div class='container-fluid border border-dark'>
              <div class='row'>
                 <input type=\"hidden\" name=\"id\" value='$id'/>
                 <div class='col-sm'><label for=\"naam\">Patient naam</label>
-                <input type=\"text\" name=\"naam\" value= '".$patient->naam."'/></div>
+                <input type=\"text\" name=\"naam\" value= '" . $patient->naam . "'/></div>
             <div class='col-sm'>
                 <label for=\"adres\">adres</label>
-                <input type=\"text\" name=\"adres\" value = '".$patient->adres."'/></div>
+                <input type=\"text\" name=\"adres\" value = '" . $patient->adres . "'/></div>
             <div class='col-sm'>
                 <label for=\"woonplaats\">woonplaats</label>
-                <input type=\"text\" name=\"woonplaats\" value= '".$patient->woonplaats."'/></div>
+                <input type=\"text\" name=\"woonplaats\" value= '" . $patient->woonplaats . "'/></div>
             <div class='col-sm'>
                 <label for=\"geboortedatum\">geboortedatum</label>
-                <input type=\"text\" name=\"geboortedatum\" value= '".$patient->geboortedatum."'/></div>
+                <input type=\"text\" name=\"geboortedatum\" value= '" . $patient->geboortedatum . "'/></div>
             <div class='col-sm'>
                 <label for=\"zknummer\">zknummer</label>
-                <input type=\"text\" name=\"zknummer\" value= '".$patient->zknummer."'/></div>
+                <input type=\"text\" name=\"zknummer\" value= '" . $patient->zknummer . "'/></div>
             <div class='col-sm'>
                 <label for=\"soortverzekering\">soortverzekering</label>
-                <input type=\"text\" name=\"soortverzekering\" value= '".$patient->soortverzekering."'/></div>
+                <input type=\"text\" name=\"soortverzekering\" value= '" . $patient->soortverzekering . "'/></div>
             <div class='col-sm'>
                 <input class='btn btn-primary' type='submit' name='updatepatient' value='opslaan'></div>
             </div>
@@ -190,8 +199,7 @@ class View
             </form>
         </body>
         </html>";
-        }
-        else{
+        } else {
             /*de html template */
             echo "
 <form method='post' action='index.php'>
@@ -225,8 +233,10 @@ class View
         </html>";
         }
     }
-    public function showMedicijnen($result = null){
-        if($result == 1){
+
+    public function showMedicijnen($result = null)
+    {
+        if ($result == 1) {
             echo "<h4>Actie geslaagd</h4>";
         }
         $medicijnen = $this->model->getMedicijnen();
@@ -241,14 +251,15 @@ class View
                 </head>
                 <body>";
 
-                   echo "    <h2>Medicijnen overzicht</h2> <form action='index.php' method='post'>
+        echo "    <h2>Medicijnen overzicht</h2> <form action='index.php' method='post'>
                                <input type='hidden' name='showForm' value='0'>
                                <input class='btn btn-success' type='submit' value='toevoegen'/>
                                </form></div></body></html>";
-                        if($medicijnen !== null) { echo "
+        if ($medicijnen !== null) {
+            echo "
                         <div id=\"medicijnen\">";
-                            foreach ($medicijnen as $medicijn) {
-                                echo "<div class='container-fluid border border-dark'>
+            foreach ($medicijnen as $medicijn) {
+                echo "<div class='container-fluid border border-dark'>
                                       <div class='row'>
                                       <div class='col-sm'>
                                       <p>Medicijn:</p> 
@@ -269,15 +280,16 @@ class View
                                        </div>
                                        </div>
                                     </div>";
-                            }
-                        }
-                    else{
-                        echo "Geen medicijnen gevonden";
-                    }
+            }
+        } else {
+            echo "Geen medicijnen gevonden";
+        }
 
     }
-    public function showFormMedicijnen($id=null){
-        if($id !=null && $id !=0){
+
+    public function showFormMedicijnen($id = null)
+    {
+        if ($id != null && $id != 0) {
             $medicijn = $this->model->selectMedicijn($id);
         }
         /*de html template */
@@ -289,20 +301,20 @@ class View
             <link rel='stylesheet' href='css/bootstrap.min.css'>
         </head><body>
         <h2>Formulier Medicijngegevens</h2>";
-    if(isset($medicijn)){
-        echo "<form method='post' >
+        if (isset($medicijn)) {
+            echo "<form method='post' >
             <div class='container-fluid border border-dark'>
                   <div class='row'>
                 <input type=\"hidden\" name=\"id\" value='$id'/>
                 <div class='col-sm'>
                 <label for=\"type\">Medicijn naam</label>
-                <input type=\"text\" name=\"type\" value= '".$medicijn->type."'/></div>
+                <input type=\"text\" name=\"type\" value= '" . $medicijn->type . "'/></div>
             <div class='col-sm'>
                 <label for=\"adres\">omschrijving</label>
-                <input type=\"text\" name=\"omschrijving\" value = '".$medicijn->omschrijving."'/></div>
+                <input type=\"text\" name=\"omschrijving\" value = '" . $medicijn->omschrijving . "'/></div>
             <div class='col-sm'>
                 <label for=\"woonplaats\">Bijwerking(en)</label>
-                <input type=\"text\" name=\"bijwerking\" value= '".$medicijn->bijwerking."'/></div>
+                <input type=\"text\" name=\"bijwerking\" value= '" . $medicijn->bijwerking . "'/></div>
             <div class='col-sm'>
                 <input class='btn btn-primary' type='submit' name='update' value='opslaan'></div>
                 </div>
@@ -310,10 +322,9 @@ class View
             </form>
         </body>
         </html>";
-    }
-    else{
-        /*de html template */
-        echo "<form method='post' action='index.php'>
+        } else {
+            /*de html template */
+            echo "<form method='post' action='index.php'>
         <div class='container-fluid border border-dark'>
                   <div class='row'>
                 <input type=\"hidden\" name=\"id\" value=''/>
@@ -333,6 +344,119 @@ class View
             </form>
         </body>
         </html>";
+        }
     }
+
+    public function showUsers($result = null)
+    {
+        if ($result == 1) {
+            echo "<h4>Actie geslaagd</h4>";
+        }
+        $users = $this->model->getGebruiker();
+
+        /*de html template */
+        echo "<!DOCTYPE html>
+                <html lang=\"nl\">
+                <head>
+                    <meta charset=\"UTF-8\">
+                    <title>Overzicht medicijnen</title>
+                    <link rel='stylesheet' href='css/bootstrap.min.css'>
+                </head>
+                <body>";
+
+        echo "    <h2>Gebruikers overzicht</h2> <form action='index.php' method='post'>
+                               <input type='hidden' name='showFormusers' value='0'>
+                               <input class='btn btn-success' type='submit' value='Toevoegen'/>
+                               </form></div></body></html>";
+        if ($users !== null) {
+            echo "
+                        <div id=\"users\">";
+            foreach ($users as $user) {
+                echo "<div class='container-fluid border border-dark'>
+                                      <div class='row'>
+                                      <div class='col-sm'>
+                                      <p>Gebruikersnaam:</p> 
+                                      $user->username</div>
+                                      <div class='col-sm'>
+                                      <p>Wachtwoord:</p>
+                                      $user->password</div>
+                                      <div class='col-sm'>
+                                      <p>Rol:</p>
+                                      $user->role</div>
+                                      <form action='index.php' method='post'>
+                                      <div class='col-sm'>
+                                       <input type='hidden' name='showFormusers' value='$user->id'><input class='btn btn-primary' type='submit' value='wijzigen'/></form></div>
+                                        <form action='index.php' method='post'>
+                                        <div class='col-sm'>
+                                       <input type='hidden' name='deleteUsers' value='$user->id'><input class='btn btn-danger' type='submit' value='verwijderen'/></form>
+                                       </div>
+                                       </div>
+                                       </div>
+                                    </div>";
+            }
+        } else {
+            echo "Geen patienten gevonden";
+        }
+
+    }
+
+    public function showFormUsers($id = null)
+    {
+        if ($id != null && $id != 0) {
+            $user = $this->model->selectGebruiker($id);
+        }
+        /*de html template */
+        echo "<!DOCTYPE html>
+        <html lang=\"nl\">
+        <head>
+            <meta charset=\"UTF-8\">
+            <title>Beheer Gebruikersgegevens</title>
+            <link rel='stylesheet' href='css/bootstrap.min.css'>
+        </head><body>
+        <h2>Formulier Gebruikersgegevens</h2>";
+        if (isset($user)) {
+            echo "<form method='post' >
+            <div class='container-fluid border border-dark'>
+                  <div class='row'>
+                <input type=\"hidden\" name=\"id\" value='$id'/>
+                <div class='col-sm'>
+                <label for=\"username\">Gebruikersnaam</label>
+                <input type=\"text\" name=\"username\" value= '" . $user->username . "'/></div>
+            <div class='col-sm'>
+                <label for=\"password\">Wachtwoord</label>
+                <input type=\"text\" name=\"password\" value = '" . $user->password . "'/></div>
+            <div class='col-sm'>
+                <label for=\"role\">Rol</label>
+                <input type=\"text\" name=\"role\" value= '" . $user->role . "'/></div>
+            <div class='col-sm'>
+                <input class='btn btn-primary' type='submit' name='updateUser' value='opslaan'></div>
+                </div>
+            </div>
+            </form>
+        </body>
+        </html>";
+        } else {
+            /*de html template */
+            echo "<form method='post' action='index.php'>
+        <div class='container-fluid border border-dark'>
+                  <div class='row'>
+                <input type=\"hidden\" name=\"id\" value=''/>
+             <div class='col-sm'>
+             <label for=\"username\">Gebruikersnaam</label>
+                <input type=\"text\" name=\"username\" value= ''/></div>
+            <div class='col-sm'>
+                <label for=\"password\">Wachtwoord</label>
+                <input type=\"text\" name=\"password\" value = ''/></div>
+            <div class='col-sm'>
+                <label for=\"role\">Rol</label>
+                <input type=\"text\" name=\"role\" value= ''/></div>
+            <div class='col-sm'>
+                <input class='btn btn-primary' type='submit' name='createUser' value='opslaan'></div>
+            </div>
+            </div>
+            </form>
+        </body>
+        </html>";
+        }
     }
 }

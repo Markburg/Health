@@ -23,6 +23,10 @@ class Controller
             $this->model->login($username, $password);
 
             if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+                $this->view->showUsers();
+                $this->view->showPatienten();
+                $this->view->showMedicijnen();
+            }else if (isset($_SESSION['role']) && $_SESSION['role'] === 'dokter') {
                 $this->view->showPatienten();
                 $this->view->showMedicijnen();
             }
@@ -125,5 +129,39 @@ class Controller
     {
         $result = $this->model->deleteMedicijn($id);
         $this->view->showMedicijnen($result);
+    }
+
+    public function readUsersaction()
+    {
+        $this->view->showUsers();
+    }
+
+    public function showFormUsersaction($id = null)
+    {
+        $this->view->showFormUsers($id);
+    }
+
+    public function createUsersaction(){
+        $username = filter_input(INPUT_POST,'username');
+        $password = filter_input(INPUT_POST,'password');
+        $role = filter_input(INPUT_POST,'role');
+        $result = $this->model->insertGebruiker($username,$password,$role);
+        $this->view->showUsers($result);
+    }
+
+    public function updateUsersaction()
+    {
+        $id = filter_input(INPUT_POST, 'id');
+        $username = filter_input(INPUT_POST, 'username');
+        $password = filter_input(INPUT_POST, 'password');
+        $role = filter_input(INPUT_POST, 'role');
+        $result = $this->model->updateGebruiker($id, $username, $password, $role);
+        $this->view->showUsers($result);
+    }
+
+    public function deleteUsersaction($id)
+    {
+        $result = $this->model->deleteGebruiker($id);
+        $this->view->showUsers($result);
     }
 }
