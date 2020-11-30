@@ -23,12 +23,14 @@ class Controller
             $this->model->login($username, $password);
 
             if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
-                $this->view->showUsers();
                 $this->view->showPatienten();
+                $this->view->showUsers();
                 $this->view->showMedicijnen();
             }else if (isset($_SESSION['role']) && $_SESSION['role'] === 'dokter') {
                 $this->view->showPatienten();
                 $this->view->showMedicijnen();
+            } else if (isset($_SESSION['role']) && $_SESSION['role'] === 'patiënt'){
+                $this->view->showDokters();
             }
             else {
                 $this->view->showLogin();
@@ -163,5 +165,8 @@ class Controller
     {
         $result = $this->model->deleteGebruiker($id);
         $this->view->showUsers($result);
+    }
+    public function readDoktersaction() {
+        $this->view->showDokters();
     }
 }

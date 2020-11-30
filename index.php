@@ -88,6 +88,13 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin") {
         $controller->readPatientenAction();
         $controller->readMedicijnenAction();
     }
+} else if (isset($_SESSION['role']) && $_SESSION['role'] == "patiënt") {
+     if (isset($_POST['logout'])) {
+        $controller->logoutAction();
+     }
+     else {
+         $controller->readDoktersaction();
+     }
 }
 else {
     if(!isset($_POST['register'])){

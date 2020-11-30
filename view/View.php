@@ -41,7 +41,7 @@ class View
                                 <tr><td>
                                 <label for=\"role\">rol</label></td><td>
                                 <select name='role'>    
-                                <option value='patient'>Patiënt</option>                           
+                                <option value='patiënt'>Patiënt</option>                           
                                 <option value='apotheker'>Apotheker</option>                                
                                 <option value='dokter'>Dokter</option>                                
                                 </select></td></tr>
@@ -365,7 +365,7 @@ class View
                 <html lang=\"nl\">
                 <head>
                     <meta charset=\"UTF-8\">
-                    <title>Overzicht medicijnen</title>
+                    <title>Overzicht gebruikers</title>
                     <link rel='stylesheet' href='css/bootstrap.min.css'>
                 </head>
                 <body>";
@@ -401,7 +401,7 @@ class View
                                     </div>";
             }
         } else {
-            echo "Geen patienten gevonden";
+            echo "Geen gebuikers gevonden";
         }
 
     }
@@ -463,6 +463,41 @@ class View
             </form>
         </body>
         </html>";
+        }
+    }
+
+    public function showDokters()
+    {
+
+        $dokters = $this->model->getDokters();
+
+        /*de html template */
+        echo "<!DOCTYPE html>
+                <html lang=\"nl\">
+                <head>
+                    <meta charset=\"UTF-8\">
+                    <title>Overzicht dokters</title>
+                    <link rel='stylesheet' href='css/bootstrap.min.css'>
+                </head>
+                <body>";
+
+        echo "    <h2>Dokters overzicht</h2> <form action='index.php' method='post'>
+                               <input type='hidden' name='showFormdokters' value='0'>
+                               <input type='hidden' name='logout' value='0'>
+                               <input class='btn btn-danger' type='submit' value='Uitloggen'/>
+                               </form></div></body></html>";
+        foreach ($dokters as $dokter) {
+            echo "<div class='container-fluid border border-dark'>
+                                      <div class='row'>
+                                      <div class='col-sm'>
+                                      <p>naam:</p> 
+                                      $dokter->username</div>                                     
+                                      <div class='col-sm'>
+                                      <p>Rol:</p>
+                                      $dokter->role</div>                                     
+                                       </div>
+                                       </div>
+                                    </div>";
         }
     }
 }

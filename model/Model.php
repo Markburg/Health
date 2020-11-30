@@ -262,4 +262,15 @@ class Model
         $result = $selection->execute();
         return $result;
     }
+    public function getDokters()
+    {
+
+        $this->makeConnection();
+        $selection = $this->database->query('SELECT * FROM `users` WHERE role ="dokter"');
+        if ($selection) {
+            $result = $selection->fetchAll(\PDO::FETCH_CLASS, \model\User::class);
+            return $result;
+        }
+        return null;
+    }
 }
