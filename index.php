@@ -4,7 +4,7 @@ use controller\Controller;
 include_once 'controller/Controller.php';
 $controller = new Controller();
 
-//alleen acties uitvoeren als er ingelogd is!!!
+//alleen deze acties uitvoeren als er ingelogd is en de gebruiker admin is!!!
 if(isset($_SESSION['role']) && $_SESSION['role']=="admin") {
     //Gebruikers
     if (isset($_POST['showFormusers'])) {
@@ -49,10 +49,11 @@ if(isset($_SESSION['role']) && $_SESSION['role']=="admin") {
         $controller->logoutAction();
     } /*READ:  overzicht alle */
     else {
-        $controller->readUsersaction();
         $controller->readPatientenAction();
         $controller->readMedicijnenAction();
+        $controller->readUsersaction();
     }
+    //alleen deze actie uitvoeren als er ingelogd is en de gebruiker dokter is!!!!
 }   else if (isset($_SESSION['role']) && $_SESSION['role'] == "dokter") {
     //Patienten
     /* formulier met gegevens tonen om een rij bij te werken */

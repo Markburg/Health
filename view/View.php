@@ -1,5 +1,7 @@
 <?php
 namespace view;
+use model\Patient;
+
 include_once ('model/Model.php');
 include_once ('model/User.php');
 include_once('model/Medicijn.php');
@@ -38,7 +40,11 @@ class View
                                 <input type=\"text\" name=\"password\"/></td></tr>
                                 <tr><td>
                                 <label for=\"role\">rol</label></td><td>
-                                <input type=\"text\" name=\"role\"/></td></tr>
+                                <select name='role'>    
+                                <option value='patient'>Patiënt</option>                           
+                                <option value='apotheker'>Apotheker</option>                                
+                                <option value='dokter'>Dokter</option>                                
+                                </select></td></tr>
                             <tr><td>
                                 <input class='btn btn-success' type='submit' name='register' value='Registreren'>
                                 </td></tr></table>
@@ -100,7 +106,7 @@ class View
                 <body>";
         echo "                    <form action='index.php' method='post'>
                              <input type='hidden' name='logout' value='0'>
-                             <input type='submit' value='Uitloggen'/>
+                             <input class='btn btn-danger' type='submit' value='Uitloggen'/>
                                 </form>
                                 <div class='container-fluid'>
                                 <h2>Patienten overzicht</h2> <form action='index.php' method='post'>
