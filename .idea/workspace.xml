@@ -20,8 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70c8d489-e46f-45bc-a1f5-8c704a7ad1d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/view/images/website.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/healthone.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/medicijnen.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/patienten.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/werkbladen Picto-reflectie Review.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BehoefteAnalyse.docx" beforeDir="false" afterPath="$PROJECT_DIR$/BehoefteAnalyse.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FunctioneelOntwerp.docx" beforeDir="false" afterPath="$PROJECT_DIR$/FunctioneelOntwerp.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +94,9 @@
       <workItem from="1606468706430" duration="18443000" />
       <workItem from="1606728488745" duration="5366000" />
       <workItem from="1606743517532" duration="1285000" />
-      <workItem from="1606744917176" duration="12196000" />
+      <workItem from="1606744917176" duration="12388000" />
+      <workItem from="1606761913109" duration="1961000" />
+      <workItem from="1606808338085" duration="2875000" />
     </task>
     <servers />
   </component>
